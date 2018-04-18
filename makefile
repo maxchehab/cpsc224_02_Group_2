@@ -1,5 +1,11 @@
 all:
-	javac *.java
-	java Game
+	javac -d ./build *.java
+	cd build && java Game	
+	
 clean:
-	rm *.class
+	rm -rf build
+
+setup:
+	mkdir build
+	mkdir dist
+
