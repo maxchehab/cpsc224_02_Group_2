@@ -1,3 +1,5 @@
+package com.yahtzee.state;
+
 import javax.swing.JPanel;
 
 public class State {

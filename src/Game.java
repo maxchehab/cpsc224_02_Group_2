@@ -1,3 +1,7 @@
+package com.yahtzee;
+
+import com.yahtzee.pages.*;
+import com.yahtzee.state.*;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -19,8 +23,7 @@ public class Game {
 
     public static void main(String[] args) {
 
-        StateManager.addState("HomePage", new State(new HomePage()));
-        StateManager.addState("HelpPage", new State(new HelpPage()));
+        StateManager.addState("Start", new State(new StartPage()));
 
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
@@ -33,7 +36,7 @@ public class Game {
             }
         });
 
-        StateManager.changeState("HomePage");
+        StateManager.changeState("Start");
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

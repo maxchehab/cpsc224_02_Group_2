@@ -1,3 +1,5 @@
+package com.yahtzee.pages;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -19,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-class BackgroundPanel extends JPanel {
+public class BackgroundPanel extends JPanel {
     private JPanel attachedPanel = new JPanel();
 
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
