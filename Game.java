@@ -26,14 +26,15 @@ public class Game {
             @Override
             public void onChange(State newState, State oldState) {
                 frame.getContentPane().removeAll();
-                frame.getContentPane().add(newState.getPanel());
+                frame.getContentPane().add(new BackgroundPanel(1200, 800, newState.getPanel()));
                 frame.revalidate();
                 frame.pack();
                 frame.setSize(1200, 800);
             }
         });
 
-        StateManager.changeState("HelpPage");
+        StateManager.changeState("HomePage");
+
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 

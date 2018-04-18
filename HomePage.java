@@ -4,6 +4,8 @@ import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,49 +18,16 @@ import javax.swing.UIManager;
 class HomePage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
-    private JLabel label;
-
     public HomePage() {
-        // super();
-        this.label = new JLabel("Home Page");
+        JLabel label = new JLabel("Home Page");
 
-        // create a new panel with GridBagLayout manager
+        setOpaque(false);
+        setBackground(Color.RED);  
+        label.setLocation(0, 0);
+        label.setSize(300, 30);
 
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10, 10, 10, 10);
+        this.add(label);
 
-        // add components to the panel
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        this.add(label, constraints);
-
-        this.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                StateManager.changeState("HelpPage");
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-        });
+        this.setLayout(null);
     }
 }
