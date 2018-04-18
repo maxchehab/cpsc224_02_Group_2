@@ -16,13 +16,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 public class Game {
+
+    static JFrame frame = new JFrame("Game");
+
     public static void main(String[] args) {
-        // set look and feel to the system look and feel
-        // try {
-        //     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        // } catch (Exception ex) {
-        //     ex.printStackTrace();
-        // }
 
         StateManager.addState("home", new State(new Panel("home")));
         StateManager.addState("test", new State(new Panel("test")));
@@ -30,26 +27,31 @@ public class Game {
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
             public void onChange(State newState, State oldState) {
-                oldState.getFrame().setVisible(false);
-                newState.getFrame().setVisible(true);
+                frame.getContentPane().removeAll();
+                frame.getContentPane().add(newState.getPanel());
+                frame.revalidate();
+                frame.pack();
             }
         });
 
         StateManager.changeState("home");
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
     }
 }
 
-class Panel extends JFrame {
+class Panel extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
     private JLabel label;
 
     public Panel(String labelName) {
-        super(labelName);
+        super();
         this.label = new JLabel(labelName);
 
         // create a new panel with GridBagLayout manager
-        JPanel newPanel = new JPanel(new GridBagLayout());
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -58,9 +60,9 @@ class Panel extends JFrame {
         // add components to the panel
         constraints.gridx = 0;
         constraints.gridy = 0;
-        newPanel.add(label, constraints);
+        this.add(label, constraints);
 
-        newPanel.addMouseListener(new MouseListener() {
+        this.addMouseListener(new MouseListener() {
 
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -87,11 +89,5 @@ class Panel extends JFrame {
 
             }
         });
-        // add the panel to this frame
-        add(newPanel);
-
-        pack();
-        setLocationRelativeTo(null);
-
     }
 }

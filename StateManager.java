@@ -1,6 +1,6 @@
 import java.util.List;
 
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class StateManager {
 
     private static Map<String, State> states = new HashMap<String, State>();
 
-    private static State currentState = new State(new JFrame());
+    private static State currentState = new State(new JPanel());
 
     public static void addStateChangedListener(StateChangedListener listener) {
         stateChangedListeners.add(listener);
@@ -34,7 +34,6 @@ public class StateManager {
 
             currentState = newState;
         }
-
     }
 }
 
@@ -43,17 +42,17 @@ interface StateChangedListener {
 }
 
 class State {
-    private JFrame frame;
+    private JPanel panel;
 
-    public State(JFrame frame) {
-        this.frame = frame;
+    public State(JPanel panel) {
+        this.panel = panel;
     }
 
-    public JFrame getFrame() {
-        return this.frame;
+    public JPanel getPanel() {
+        return this.panel;
     }
 
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
     }
 }
