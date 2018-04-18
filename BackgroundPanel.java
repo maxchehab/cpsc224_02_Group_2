@@ -31,9 +31,11 @@ class BackgroundPanel extends JPanel {
         label.setLocation(15, 15);
         label.setSize(300, 30);
 
+        panel.setBounds(15, 15, width - 60, height - 120);
+
         attachedPanel.setBackground(Color.decode("#aeabab"));
         attachedPanel.setBounds(15, 45, width - 30, height - 90);
-        attachedPanel.setLayout(new BorderLayout());
+        attachedPanel.setLayout(null);
         attachedPanel.add(panel);
 
         setBackground(Color.decode("#006fc0"));
