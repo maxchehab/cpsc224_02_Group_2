@@ -10,6 +10,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public class Button extends JButton {
+    static final long serialVersionUID = 0;
+
     public Button(String label, int size, Color foreground, Color background, Color border, ActionListener listener) {
         super(label);
 
