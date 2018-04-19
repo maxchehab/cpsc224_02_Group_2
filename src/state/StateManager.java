@@ -35,6 +35,13 @@ public class StateManager {
             }
 
             currentState = newState;
+            
+        } else {
+            switch(name){
+                case "EXIT":
+                    System.exit(0);
+                break;
+            }
         }
     }
 }

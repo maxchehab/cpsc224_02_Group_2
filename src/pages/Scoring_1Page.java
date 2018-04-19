@@ -6,6 +6,7 @@ import com.yahtzee.components.*;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+// import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -43,7 +44,7 @@ public class Scoring_1Page extends JPanel {
         label2.setFont(new Font("_", Font.PLAIN, 22));
 
         Image diceValuesImage = new Image("src/assets/images/dice_values.png");
-        diceValuesImage.setBounds(350, 180, 448, 184);
+        diceValuesImage.setLocation(350, 180);
 
         JLabel label3 = new JLabel(
                 "<html>How are we going to win this thing? Keep going to find out! Or, select previous to return to the main menu.");
@@ -63,7 +64,7 @@ public class Scoring_1Page extends JPanel {
         Button nextButton = new Button("NEXT", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("NEXT");
+                        StateManager.changeState("Scoring_2");
                     }
                 });
         nextButton.setBounds(830, 500, 200, 50);

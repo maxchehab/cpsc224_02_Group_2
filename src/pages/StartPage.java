@@ -68,7 +68,7 @@ public class StartPage extends JPanel {
         Button exitButton = new Button("EXIT", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#52793b"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Exiting");
+                        StateManager.changeState("EXIT");
                     }
                 });
         exitButton.setBounds(470, 400, 200, 50);
