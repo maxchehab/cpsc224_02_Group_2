@@ -1,4 +1,4 @@
-package com.yahtzee.pages;
+package com.yahtzee.components;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 public class BackgroundPanel extends JPanel {
     private JPanel attachedPanel = new JPanel();
 
-    static final long serialVersionUID = 0; // JFFrame requires a unique number.
+    static final long serialVersionUID = 0; // JFrame requires a unique number.
 
     public BackgroundPanel(int width, int height, JPanel panel) {
         JLabel label = new JLabel("WWII Yahtzee");

@@ -2,6 +2,7 @@
 package com.yahtzee.pages;
 
 import com.yahtzee.state.*;
+import com.yahtzee.components.*;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -31,22 +32,22 @@ public class StartPage extends JPanel {
         JLabel label1 = new JLabel("<html>Welcome to <strong>World War II Yahtzee!</strong>");
         label1.setForeground(Color.decode("#585b5e"));
         label1.setLocation(10, 0);
-        label1.setSize(600, 30);
-        label1.setFont(new Font("_", Font.PLAIN, 18));
+        label1.setSize(600, 50);
+        label1.setFont(new Font("_", Font.PLAIN, 22));
 
         JLabel label2 = new JLabel(
                 "<html>Your goal is to bring the <strong>ALLIES</strong> to victory over the <strong>AXIS POWERS</strong> alliance by scoring as many points as possible!");
         label2.setForeground(Color.decode("#585b5e"));
-        label2.setLocation(10, 40);
-        label2.setSize(1100, 30);
-        label2.setFont(new Font("_", Font.PLAIN, 18));
+        label2.setLocation(10, 60);
+        label2.setSize(1100, 50);
+        label2.setFont(new Font("_", Font.PLAIN, 22));
 
         JLabel label3 = new JLabel(
                 "<html>If you’ve already been briefed, click <strong>PLAY</strong> to begin now! Otherwise, select <strong>INSTRUCTIONS</strong> to learn about your mission!");
         label3.setForeground(Color.decode("#585b5e"));
-        label3.setLocation(10, 80);
-        label3.setSize(1100, 30);
-        label3.setFont(new Font("_", Font.PLAIN, 18));
+        label3.setLocation(10, 130);
+        label3.setSize(1100, 50);
+        label3.setFont(new Font("_", Font.PLAIN, 22));
 
         Button playButton = new Button("PLAY", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
@@ -59,7 +60,7 @@ public class StartPage extends JPanel {
         Button helpButton = new Button("INSTRUCTIONS", 22, Color.WHITE, Color.decode("#585a5d"),
                 Color.decode("#ffc000"), new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Helping");
+                        StateManager.changeState("Scoring_1");
                     }
                 });
         helpButton.setBounds(420, 325, 300, 50);
