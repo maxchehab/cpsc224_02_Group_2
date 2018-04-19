@@ -4,27 +4,15 @@ package com.yahtzee.pages;
 import com.yahtzee.state.*;
 import com.yahtzee.components.*;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-// import java.awt.Image;
-import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import java.awt.event.MouseListener;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.JButton;
 
 public class Scoring_1Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.

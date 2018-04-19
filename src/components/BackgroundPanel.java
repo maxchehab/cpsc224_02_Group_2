@@ -1,25 +1,11 @@
 package com.yahtzee.components;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.BorderLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 public class BackgroundPanel extends JPanel {
     private JPanel attachedPanel = new JPanel();
