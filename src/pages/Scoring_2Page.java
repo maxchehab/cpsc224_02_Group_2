@@ -58,7 +58,7 @@ public class Scoring_2Page extends JPanel {
         Button nextButton = new Button("NEXT", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("NEXT");
+                        StateManager.changeState("Scoring_3");
                     }
                 });
         nextButton.setBounds(830, 600, 200, 50);
