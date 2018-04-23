@@ -16,6 +16,7 @@ public class Game {
         StateManager.addState("Scoring_1", new State(new Scoring_1Page()));
         StateManager.addState("Scoring_2", new State(new Scoring_2Page()));
         StateManager.addState("Scoring_3", new State(new Scoring_3Page()));
+        StateManager.addState("Roll_1", new State(new Roll_1Page()));
 
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override

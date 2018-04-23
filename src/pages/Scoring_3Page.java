@@ -32,7 +32,7 @@ public class Scoring_3Page extends JPanel {
         label2.setFont(new Font("_", Font.PLAIN, 20));
 
         JLabel label3 = new JLabel(
-                "<html><div style='text-align: center;'>If you’re ready to start the war, select <strong>PLAY</strong>. If you’d like to revie the <strong>UPPER SECTION</strong> instructions, select <strong>PREVIOUS</strong>.");
+                "<html><div style='text-align: center;'>If you’re ready to start the war, select <strong>PLAY</strong>. If you’d like to review the <strong>UPPER SECTION</strong> instructions, select <strong>PREVIOUS</strong>.");
         label3.setForeground(Color.decode("#585b5e"));
         label3.setLocation(10, 500);
         label3.setSize(1100, 100);
@@ -73,7 +73,7 @@ public class Scoring_3Page extends JPanel {
         Button nextButton = new Button("PLAY", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Roll_1");
+                        StateManager.changeState("Roll_1");
                     }
                 });
         nextButton.setBounds(830, 600, 200, 50);

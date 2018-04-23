@@ -43,7 +43,7 @@ public class StartPage extends JPanel {
         Button playButton = new Button("PLAY", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Playing");
+                        StateManager.changeState("Roll_1");
                     }
                 });
         playButton.setBounds(470, 250, 200, 50);
