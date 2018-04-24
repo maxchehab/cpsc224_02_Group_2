@@ -16,9 +16,9 @@ public class FlagDice extends JComponent {
     static final int width = 100;
     static final int height = 130;
 
-    public FlagDice(String path, String name, int x, int y) {
+    public FlagDice(PathName pathName, int x, int y) {
 
-        Flag flag = new Flag(path, name, 0, 0);
+        Flag flag = new Flag(pathName.path, pathName.name, 0, 0);
 
         JCheckBox checkbox = new JCheckBox();
         checkbox.setBounds(37, height - 30, 30, 30);

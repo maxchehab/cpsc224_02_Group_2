@@ -3,6 +3,7 @@ package com.yahtzee.pages;
 
 import com.yahtzee.state.*;
 import com.yahtzee.components.*;
+import com.yahtzee.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -40,15 +41,15 @@ public class Roll_1Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
-        FlagDice japan = new FlagDice("src/assets/images/flags/JAPAN.png", "JAPAN", 320, 100);
-        FlagDice france = new FlagDice("src/assets/images/flags/FRANCE.png", "FRANCE", 455, 100);
-        FlagDice china = new FlagDice("src/assets/images/flags/CHINA.png", "CHINA", 585, 100);
-        FlagDice soviet = new FlagDice("src/assets/images/flags/SOVIET_UNION.png", "SOVIET UNION", 720, 100);
+        FlagDice japan = new FlagDice(Game.roll(), 320, 100);
+        FlagDice france = new FlagDice(Game.roll(), 455, 100);
+        FlagDice china = new FlagDice(Game.roll(), 585, 100);
+        FlagDice soviet = new FlagDice(Game.roll(), 720, 100);
 
-        FlagDice italy = new FlagDice("src/assets/images/flags/ITALY.png", "ITALY", 320, 300);
-        FlagDice germany = new FlagDice("src/assets/images/flags/GERMANY.png", "GERMANY", 455, 300);
-        FlagDice uk = new FlagDice("src/assets/images/flags/UK.png", "UK", 585, 300);
-        FlagDice usa = new FlagDice("src/assets/images/flags/USA.png", "USAm", 720, 300);
+        FlagDice italy = new FlagDice(Game.roll(), 320, 300);
+        FlagDice germany = new FlagDice(Game.roll(), 455, 300);
+        FlagDice uk = new FlagDice(Game.roll(), 585, 300);
+        FlagDice usa = new FlagDice(Game.roll(), 720, 300);
 
         Button rerollButton = new Button("RE-ROLL", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
