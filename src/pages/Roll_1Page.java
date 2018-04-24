@@ -41,15 +41,16 @@ public class Roll_1Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
-        FlagDice japan = new FlagDice(Game.roll(), 320, 100);
-        FlagDice france = new FlagDice(Game.roll(), 455, 100);
-        FlagDice china = new FlagDice(Game.roll(), 585, 100);
-        FlagDice soviet = new FlagDice(Game.roll(), 720, 100);
-
-        FlagDice italy = new FlagDice(Game.roll(), 320, 300);
-        FlagDice germany = new FlagDice(Game.roll(), 455, 300);
-        FlagDice uk = new FlagDice(Game.roll(), 585, 300);
-        FlagDice usa = new FlagDice(Game.roll(), 720, 300);
+        FlagDice[] flags = new FlagDice[]{
+            new FlagDice(Game.roll(), 320, 100),
+            new FlagDice(Game.roll(), 455, 100),
+            new FlagDice(Game.roll(), 585, 100),
+            new FlagDice(Game.roll(), 720, 100),
+            new FlagDice(Game.roll(), 320, 300),
+            new FlagDice(Game.roll(), 455, 300),
+            new FlagDice(Game.roll(), 585, 300),
+            new FlagDice(Game.roll(), 720, 300)
+        };
 
         Button rerollButton = new Button("RE-ROLL", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
@@ -65,15 +66,9 @@ public class Roll_1Page extends JPanel {
         add(label2);
         add(label3);
 
-        add(japan);
-        add(france);
-        add(china);
-        add(soviet);
-
-        add(italy);
-        add(germany);
-        add(uk);
-        add(usa);
+        for(FlagDice flag : flags) {
+            add(flag);
+        }
 
         add(rerollButton);
     }
