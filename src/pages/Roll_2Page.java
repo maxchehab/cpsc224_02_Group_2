@@ -16,10 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-public class Roll_1Page extends JPanel {
+public class Roll_2Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
-    public Roll_1Page() {
+    public Roll_2Page() {
         JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #1");
         label1.setForeground(Color.decode("#585b5e"));
         label1.setBorder(BorderFactory.createLineBorder(Color.decode("#585b5e"), 3));
@@ -28,7 +28,7 @@ public class Roll_1Page extends JPanel {
         label1.setFont(new Font("_", Font.PLAIN, 20));
 
         JLabel label2 = new JLabel(
-                "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'><strong>Your first roll:</strong>");
+                "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'><strong>Your second roll:</strong>");
         label2.setForeground(Color.decode("#414446"));
         label2.setLocation(315, 10);
         label2.setSize(500, 60);
@@ -41,17 +41,15 @@ public class Roll_1Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
-        FlagDice[] flags = new FlagDice[]{
-            new FlagDice(Game.roll(), 320, 100),
-            new FlagDice(Game.roll(), 455, 100),
-            new FlagDice(Game.roll(), 585, 100),
-            new FlagDice(Game.roll(), 720, 100),
-            new FlagDice(Game.roll(), 320, 300),
-            new FlagDice(Game.roll(), 455, 300),
-            new FlagDice(Game.roll(), 585, 300),
-            new FlagDice(Game.roll(), 720, 300)
-        };
-
+        FlagDice[] flags = (FlagDice[])StateManager.getState(StateManager.FLAGDICE);
+        int i = 0;
+        for(FlagDice flag : flags){
+            if(!flag.keep){
+                flags[i] = new FlagDice(Game.roll(), flag);
+            }
+            i++;
+        }
+        
         StateManager.changeState(StateManager.FLAGDICE, flags);
 
         StateManager.addStateChangedListener(new StateChangedListener() {
@@ -66,7 +64,7 @@ public class Roll_1Page extends JPanel {
         Button rerollButton = new Button("RE-ROLL", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_2Page());
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
                     }
                 });
         rerollButton.setBounds(480, 600, 200, 50);

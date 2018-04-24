@@ -16,7 +16,8 @@ public class StateManager {
 
     public static final String CHANGE_PANEL = "CHANGE_PANEL";
     public static final String EXIT = "EXIT";
-
+    public static final String UPDATE_FLAGDICE = "UPDATE_FLAGDICE";
+    public static final String FLAGDICE = "FLAGDICE";
 
     public static void addStateChangedListener(StateChangedListener listener) {
         stateChangedListeners.add(listener);
@@ -31,5 +32,10 @@ public class StateManager {
 
     public static Object getState(String name) {
         return states.get(name);
+    }
+
+    public static Object getStateOrDefault(String name, Object defaultState) {
+        Object state = states.get(name);
+        return (state == null ? defaultState : state);
     }
 }
