@@ -5,6 +5,7 @@ import com.yahtzee.state.*;
 import com.yahtzee.components.*;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Game {
 
@@ -12,28 +13,29 @@ public class Game {
 
     public static void main(String[] args) {
 
-        StateManager.addState("Start", new State(new StartPage()));
-        StateManager.addState("Scoring_1", new State(new Scoring_1Page()));
-        StateManager.addState("Scoring_2", new State(new Scoring_2Page()));
-        StateManager.addState("Scoring_3", new State(new Scoring_3Page()));
-        StateManager.addState("Roll_1", new State(new Roll_1Page()));
-
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
-            public void onChange(State newState, State oldState) {
-                frame.getContentPane().removeAll();
-                frame.getContentPane().add(new BackgroundPanel(1200, 800, newState.getPanel()));
-                frame.revalidate();
-                frame.pack();
-                frame.setSize(1200, 800);
+            public void onChange(String key, Object state) {
+                if (key == StateManager.CHANGE_PANEL && state instanceof JPanel) {
+                    JPanel panel = (JPanel) state;
+                    frame.getContentPane().removeAll();
+                    frame.getContentPane().add(new BackgroundPanel(1200, 800, panel));
+                    frame.revalidate();
+                    frame.pack();
+                    frame.setSize(1200, 800);
+                }
+
+                if (key == StateManager.EXIT && state instanceof Integer) {
+                    System.exit((Integer) state);
+                }
             }
         });
-        StateManager.changeState("Start");
+
+        StateManager.changeState(StateManager.CHANGE_PANEL, new StartPage());
 
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
 }

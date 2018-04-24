@@ -43,7 +43,7 @@ public class StartPage extends JPanel {
         Button playButton = new Button("PLAY", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("Roll_1");
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
                     }
                 });
         playButton.setBounds(470, 250, 200, 50);
@@ -51,7 +51,7 @@ public class StartPage extends JPanel {
         Button helpButton = new Button("INSTRUCTIONS", 22, Color.WHITE, Color.decode("#585a5d"),
                 Color.decode("#ffc000"), new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("Scoring_1");
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_1Page());
                     }
                 });
         helpButton.setBounds(420, 325, 300, 50);
@@ -59,7 +59,7 @@ public class StartPage extends JPanel {
         Button exitButton = new Button("EXIT", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#52793b"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("EXIT");
+                        StateManager.changeState(StateManager.EXIT, 1);
                     }
                 });
         exitButton.setBounds(470, 400, 200, 50);

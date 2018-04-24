@@ -53,7 +53,7 @@ public class Roll_1Page extends JPanel {
         Button rerollButton = new Button("RE-ROLL", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("Roll_2");
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
                     }
                 });
         rerollButton.setBounds(480, 600, 200, 50);

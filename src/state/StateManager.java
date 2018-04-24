@@ -11,37 +11,25 @@ import java.util.HashMap;
 public class StateManager {
     private static List<StateChangedListener> stateChangedListeners = new ArrayList<StateChangedListener>();
 
-    private static Map<String, State> states = new HashMap<String, State>();
+    private static Map<String, Object> states = new HashMap<String, Object>();
 
-    private static State currentState = new State(new JPanel());
+
+    public static final String CHANGE_PANEL = "CHANGE_PANEL";
+    public static final String EXIT = "EXIT";
+
 
     public static void addStateChangedListener(StateChangedListener listener) {
         stateChangedListeners.add(listener);
     }
 
-    public static void addState(String name, State state) {
+    public static void changeState(String name, Object state) {
         states.put(name, state);
-    }
-
-    public static void removeState(String name) {
-        states.remove(name);
-    }
-
-    public static void changeState(String name) {
-        if (states.containsKey(name)) {
-            State newState = states.get(name);
-            for (StateChangedListener listener : stateChangedListeners) {
-                listener.onChange(newState, currentState);
-            }
-
-            currentState = newState;
-            
-        } else {
-            switch(name){
-                case "EXIT":
-                    System.exit(0);
-                break;
-            }
+        for (StateChangedListener listener : stateChangedListeners) {
+            listener.onChange(name, state);
         }
+    }
+
+    public static Object getState(String name) {
+        return states.get(name);
     }
 }

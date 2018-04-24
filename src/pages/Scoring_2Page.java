@@ -50,7 +50,7 @@ public class Scoring_2Page extends JPanel {
         Button previousButton = new Button("PREVIOUS", 22, Color.WHITE, Color.decode("#585a5d"),
                 Color.decode("#ed7c31"), new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("Scoring_1");
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_1Page());
                     }
                 });
         previousButton.setBounds(100, 600, 200, 50);
@@ -58,7 +58,7 @@ public class Scoring_2Page extends JPanel {
         Button nextButton = new Button("NEXT", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState("Scoring_3");
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_3Page());
                     }
                 });
         nextButton.setBounds(830, 600, 200, 50);
