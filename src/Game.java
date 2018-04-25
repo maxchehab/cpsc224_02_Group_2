@@ -30,10 +30,10 @@ public class Game {
         p.add(new PathName("src/assets/images/flags/UK.png", "UK"));
         p.add(new PathName("src/assets/images/flags/USA.png", "USA"));
         pathAndNames = Collections.unmodifiableList(p);
-    } 
+    }
 
     public static void main(String[] args) {
-        
+
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
             public void onChange(String key, Object state) {
@@ -58,10 +58,10 @@ public class Game {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    } 
+    }
 
-    public static PathName roll(){
-        int index =  randomGenerator.nextInt(pathAndNames.size());
+    public static PathName roll() {
+        int index = randomGenerator.nextInt(pathAndNames.size());
         return pathAndNames.get(index);
     }
 }

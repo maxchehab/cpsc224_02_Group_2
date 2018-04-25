@@ -27,7 +27,7 @@ public class FlagDice extends JComponent {
 
     public Boolean keep = false;
     public int x, y;
-    public String name;
+    public PathName pathName;
 
     public FlagDice(PathName pathName, FlagDice flagDice) {
         this(pathName, flagDice.x, flagDice.y);
@@ -36,7 +36,7 @@ public class FlagDice extends JComponent {
     public FlagDice(PathName pathName, int x, int y) {
         Flag flag = new Flag(pathName.path, pathName.name, 0, 0);
 
-        this.name = pathName.name;
+        this.pathName = pathName;
         this.x = x;
         this.y = y;
 
@@ -50,7 +50,7 @@ public class FlagDice extends JComponent {
                 StateManager.changeState(StateManager.UPDATE_FLAGDICE, 0);
             }
         });
-        
+
         try {
             Image selectedImage = ImageIO.read(new File("src/assets/images/selected.png"));
             checkbox.setSelectedIcon(new ImageIcon(selectedImage));
@@ -66,13 +66,16 @@ public class FlagDice extends JComponent {
         setLocation(x, y);
     }
 
+    public PathName getPathName() {
+        return this.pathName;
+    }
+
     @Override
     public void setLocation(int x, int y) {
         setBounds(x, y, width, height);
         setSize(width, height);
     }
 
-   
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
