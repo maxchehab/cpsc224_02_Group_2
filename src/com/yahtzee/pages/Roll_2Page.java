@@ -42,7 +42,10 @@ public class Roll_2Page extends JPanel {
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
         FlagDice[] flags = (FlagDice[])StateManager.getState(StateManager.FLAGDICE);
+        
+        
         int i = 0;
+        
         for(FlagDice flag : flags){
             if(!flag.keep){
                 flags[i] = new FlagDice(Game.roll(), flag);
@@ -64,9 +67,10 @@ public class Roll_2Page extends JPanel {
         Button rerollButton = new Button("RE-ROLL", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_OptionsPage());
                     }
                 });
+        
         rerollButton.setBounds(480, 600, 200, 50);
 
         setBackground(Color.decode("#aeabab"));
