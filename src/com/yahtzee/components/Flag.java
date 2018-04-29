@@ -1,8 +1,5 @@
 package com.yahtzee.components;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -32,7 +29,7 @@ public class Flag extends JComponent {
         setBackground(Color.decode("#585a5d"));
         setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
         setLocation(x, y);
-        
+
         add(flag);
         add(nameLabel);
     }

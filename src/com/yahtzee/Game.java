@@ -18,17 +18,22 @@ public class Game {
 
     private static final List<PathName> pathAndNames;
     private static final Random randomGenerator = new Random();
-    
-	public final static int CARD_SIZE = 13;
-	public final static int HAND_SIZE = 8;
-	public final static int DIE_SIZE = 8;
-    
+
+    public final static int CARD_SIZE = 13;
+    public final static int HAND_SIZE = 8;
+    public final static int DIE_SIZE = 8;
+
     public static ScoringDice[] hand;
-    
-	enum Country { UK, USA, SOVIET_UNION, FRANCE, CHINA, JAPAN, ITALY, GERMANY };
-	enum Allegiance { ALLIES, AXIS };
-	
-	public static Card play = new Card();
+
+    enum Country {
+        UK, USA, SOVIET_UNION, FRANCE, CHINA, JAPAN, ITALY, GERMANY
+    };
+
+    enum Allegiance {
+        ALLIES, AXIS
+    };
+
+    public static Card play = new Card();
 
     static {
         List<PathName> p = new ArrayList<PathName>();
@@ -44,15 +49,11 @@ public class Game {
     }
 
     public static void main(String[] args) {
-<<<<<<< HEAD:src/Game.java
 
-=======
-    	
-    		int round = 1;
-    		
-    		int scoreIndex = 0;
-    		
->>>>>>> ad96820b8885203abfc7f7591539c9bfff07496a:src/com/yahtzee/Game.java
+        int round = 1;
+
+        int scoreIndex = 0;
+
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
             public void onChange(String key, Object state) {
@@ -83,5 +84,5 @@ public class Game {
         int index = randomGenerator.nextInt(pathAndNames.size());
         return pathAndNames.get(index);
     }
-    
+
 }
