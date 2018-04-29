@@ -56,6 +56,9 @@ public class Scoring_1Page extends JPanel {
                     }
                 });
         nextButton.setBounds(830, 500, 200, 50);
+        Integer index = (Integer)StateManager.getState(StateManager.CHOSEN_SCORE);
+        
+        System.out.println("Chosen Index: " + index);
 
         setBackground(Color.decode("#e7e6e6"));
         setLayout(null);

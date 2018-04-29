@@ -6,15 +6,18 @@ import java.awt.Image;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import com.yahtzee.state.StateManager;
 
@@ -27,14 +30,23 @@ public class FlagDice extends JComponent {
 
     public Boolean keep = false;
     public int x, y;
+<<<<<<< HEAD:src/components/FlagDice.java
     public PathName pathName;
+=======
+    public String name;
+    
+    public PathName flagImage;
+>>>>>>> ad96820b8885203abfc7f7591539c9bfff07496a:src/com/yahtzee/components/FlagDice.java
 
     public FlagDice(PathName pathName, FlagDice flagDice) {
         this(pathName, flagDice.x, flagDice.y);
     }
 
     public FlagDice(PathName pathName, int x, int y) {
+    	
         Flag flag = new Flag(pathName.path, pathName.name, 0, 0);
+        
+        flagImage = pathName;
 
         this.pathName = pathName;
         this.x = x;
@@ -65,6 +77,7 @@ public class FlagDice extends JComponent {
         add(checkbox);
         setLocation(x, y);
     }
+    
 
     public PathName getPathName() {
         return this.pathName;
@@ -80,5 +93,9 @@ public class FlagDice extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         checkbox.setSelected(keep);
+    }
+    
+    public int limit(int value, int min, int max) {
+        return Math.max(min, Math.min(value, max));
     }
 }

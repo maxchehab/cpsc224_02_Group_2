@@ -32,6 +32,7 @@ public class Flag extends JComponent {
         setBackground(Color.decode("#585a5d"));
         setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
         setLocation(x, y);
+        
         add(flag);
         add(nameLabel);
     }

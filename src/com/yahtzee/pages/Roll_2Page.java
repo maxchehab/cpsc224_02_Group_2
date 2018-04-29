@@ -41,10 +41,20 @@ public class Roll_2Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
+<<<<<<< HEAD:src/pages/Roll_2Page.java
         FlagDice[] flags = (FlagDice[]) StateManager.getState(StateManager.FLAGDICE);
         int i = 0;
         for (FlagDice flag : flags) {
             if (!flag.keep) {
+=======
+        FlagDice[] flags = (FlagDice[])StateManager.getState(StateManager.FLAGDICE);
+        
+        
+        int i = 0;
+        
+        for(FlagDice flag : flags){
+            if(!flag.keep){
+>>>>>>> ad96820b8885203abfc7f7591539c9bfff07496a:src/com/yahtzee/pages/Roll_2Page.java
                 flags[i] = new FlagDice(Game.roll(), flag);
             }
             i++;
@@ -67,6 +77,7 @@ public class Roll_2Page extends JPanel {
                         StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_OptionsPage());
                     }
                 });
+        
         rerollButton.setBounds(480, 600, 200, 50);
 
         setBackground(Color.decode("#aeabab"));

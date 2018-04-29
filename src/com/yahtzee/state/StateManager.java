@@ -18,6 +18,7 @@ public class StateManager {
     public static final String EXIT = "EXIT";
     public static final String UPDATE_FLAGDICE = "UPDATE_FLAGDICE";
     public static final String FLAGDICE = "FLAGDICE";
+    public static final String CHOSEN_SCORE = "CHOSEN_SCORE";
 
     public static void addStateChangedListener(StateChangedListener listener) {
         stateChangedListeners.add(listener);
