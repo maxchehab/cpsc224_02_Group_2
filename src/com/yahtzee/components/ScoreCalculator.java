@@ -70,7 +70,7 @@ public class ScoreCalculator {
 			}
 		}
 
-		if (ally <= 1)
+		if (ally == 4)
 			return 30;
 		else
 			return 0;
@@ -89,7 +89,7 @@ public class ScoreCalculator {
 				other++;
 			}
 		}
-		if (germany > 0 && sunion > 0 && other < 1)
+		if (germany >= 3 && sunion >= 3)
 			return 30;
 		else
 			return 0;
@@ -111,7 +111,7 @@ public class ScoreCalculator {
 				other++;
 			}
 		}
-		if (usa > 0 && uk > 0 && sunion > 0 && other < 1)
+		if (usa >= 2 && uk >= 2 && sunion >= 2)
 			return 50;
 		else
 			return 0;

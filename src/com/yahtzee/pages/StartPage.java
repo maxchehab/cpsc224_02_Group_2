@@ -47,7 +47,7 @@ public class StartPage extends JPanel {
         Button helpButton = new Button("INSTRUCTIONS", 22, Color.WHITE, Color.decode("#585a5d"),
                 Color.decode("#ffc000"), new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_1());
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Scoring_1Page());
                     }
                 });
         helpButton.setBounds(420, 325, 300, 50);

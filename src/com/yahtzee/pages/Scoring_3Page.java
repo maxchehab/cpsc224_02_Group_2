@@ -38,10 +38,10 @@ public class Scoring_3Page extends JPanel {
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
         JTable table = new JTable(
-                new Object[][] { { "CEASE-FIRE", "30", "All one AXIS member and one ALLY" },
-                        { "TREATY OF FRIENDSHIP", "30", "ALL GERMANY and SOVIET UNION" }, { "BIG THREE", "50", "--" },
-                        { "AROUND THE WORLD", "60", "--" }, { "UNITED NATIONS", "70", "--" },
-                        { "TRIPARTITE PACT", "70", "--" }, { "PEAL HARBOR", "100", "--" } },
+                new Object[][] { { "CEASE-FIRE", "30", "4 AXIS and 4 ALLIES" },
+                        { "TREATY OF FRIENDSHIP", "30", "3 Germany and 3 Soviet Union" }, { "BIG THREE", "50", "2 US, 2 UK, 2 Soviet Union" },
+                        { "AROUND THE WORLD", "60", "one of each country" }, { "UNITED NATIONS", "70", "all ALLIES" },
+                        { "TRIPARTITE PACT", "70", "all AXIS  members" }, { "PEAL HARBOR", "100", "all one country" },  },
                 new Object[] { "Name", "Points", "Description" }) {
             private static final long serialVersionUID = 1L;
 

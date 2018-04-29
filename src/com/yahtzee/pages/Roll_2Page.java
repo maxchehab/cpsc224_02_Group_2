@@ -37,7 +37,7 @@ public class Roll_2Page extends JPanel {
         label2.setFont(new Font("_", Font.PLAIN, 20));
 
         JLabel label3 = new JLabel(
-                "<html><div style='padding-top: 5; border-top: 2px solid #585b5e; width: 1100; text-align: center;'>Check the boxes of the dice you’d like to re-roll, and click <strong>re-roll</strong> when you’re ready to continue.");
+                "<html><div style='padding-top: 5; border-top: 2px solid #585b5e; width: 1100; text-align: center;'>Check the boxes of the dice you’d like to keep, and click <strong>re-roll</strong> when you’re ready to continue.");
         label3.setForeground(Color.decode("#585b5e"));
         label3.setLocation(10, 500);
         label3.setSize(1100, 100);

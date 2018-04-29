@@ -38,7 +38,7 @@ public class ScoreChoice extends JComponent {
                     public void actionPerformed(ActionEvent e) {
                     		Game.play.score[index] = points;
                     		Game.play.usable[index] = false;
-                    		if(Game.round < 12)
+                    		if(Game.round < 13)
                     			StateManager.changeState(StateManager.CHANGE_PANEL, new AlternateCard());
                     		else
                     			StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_2());
