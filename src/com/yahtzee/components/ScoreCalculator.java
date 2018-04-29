@@ -4,6 +4,11 @@ public class ScoreCalculator {
 
 	public int[] scores = new int[Card.CARD_SIZE];
 	public ScoringDice[] hand = new ScoringDice[Card.HAND_SIZE];
+	
+	public static int upperTotal;
+	public static int enolaGay;
+	public static int lowerTotal;
+	public static int grandTotal;
 
 	/**
 	 * 
@@ -185,5 +190,7 @@ public class ScoreCalculator {
 		}
 		return sum;
 	}
+	
+
 
 }

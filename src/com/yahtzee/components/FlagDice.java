@@ -1,23 +1,17 @@
 package com.yahtzee.components;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-
+import java.awt.Image;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import com.yahtzee.state.StateManager;
 

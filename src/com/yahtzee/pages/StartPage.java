@@ -1,20 +1,16 @@
 
 package com.yahtzee.pages;
 
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import java.awt.event.MouseListener;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.yahtzee.components.Button;
+import com.yahtzee.state.StateManager;
 
 public class StartPage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.

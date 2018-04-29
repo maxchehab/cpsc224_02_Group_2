@@ -1,16 +1,20 @@
 package com.yahtzee;
 
-import com.yahtzee.pages.*;
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
+import com.yahtzee.components.BackgroundPanel;
+import com.yahtzee.components.Card;
+import com.yahtzee.components.PathName;
+import com.yahtzee.components.ScoringDice;
+import com.yahtzee.pages.StartPage;
+import com.yahtzee.state.StateChangedListener;
+import com.yahtzee.state.StateManager;
 
 public class Game {
 
@@ -33,7 +37,8 @@ public class Game {
         ALLIES, AXIS
     };
 
-    public static Card play = new Card();
+    public static Card play;
+    public static int round;
 
     static {
         List<PathName> p = new ArrayList<PathName>();
@@ -50,9 +55,11 @@ public class Game {
 
     public static void main(String[] args) {
 
-        int round = 1;
-
-        int scoreIndex = 0;
+        round = 1;
+        
+        play = new Card();
+        
+        StateManager.changeState(StateManager.SCORECARD, play);
 
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
@@ -83,6 +90,11 @@ public class Game {
     public static PathName roll() {
         int index = randomGenerator.nextInt(pathAndNames.size());
         return pathAndNames.get(index);
+    }
+    
+    public static void resetGame() {
+    		round = 1;
+    		play = new Card();
     }
 
 }

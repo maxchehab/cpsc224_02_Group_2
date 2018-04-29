@@ -1,19 +1,27 @@
 package com.yahtzee.pages;
 
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import com.yahtzee.Game;
+import com.yahtzee.components.Button;
+import com.yahtzee.components.Card;
+import com.yahtzee.components.Image;
+import com.yahtzee.state.StateManager;
+
 public class ScoringCard_1 extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
+    
+	public static int upperTotal;
+	public static int enolaGay;
+	public static int lowerTotal;
+	public static int grandTotal;
 
     public ScoringCard_1() {
         JLabel label1 = new JLabel(
@@ -22,6 +30,8 @@ public class ScoringCard_1 extends JPanel {
         label1.setLocation(315, 10);
         label1.setSize(500, 60);
         label1.setFont(new Font("_", Font.PLAIN, 20));
+        Image egg = new Image("src/assets/images/lowerScores.png", 0.2f, 0, 0);
+        add(egg);
 
         JTable table1 = new JTable(
                 new Object[][] { { "", "ROOSEVELT(sum of all USA dice, less axis)", "" },
@@ -54,13 +64,15 @@ public class ScoringCard_1 extends JPanel {
         table1.getColumnModel().getColumn(2).setPreferredWidth(50);
 
         JTable table = new JTable(new Object[][] { { "LowerSection", "Points", "Description" },
-                { "CEASE-FIRE", "", "all one AXIS and one ALLY" }, { "TREATY OF FRIENDSHIP", "", "all AXIS members" },
+                { "CEASE-FIRE", "Hey", "all one AXIS and one ALLY" }, { "TREATY OF FRIENDSHIP", "", "all AXIS members" },
                 { "BIG THREE", "", "all US, UK, and USSR" }, { "AROUND THE WORLD", "", "One of each" },
                 { "UNITED NATIONS", "", "all allies" }, { "TRIPARTITE PACT", "", "all axis" },
                 { "PEAL HARBOR", "", "all axis or allies" }, { "D-Day", "", "chance of all allies, no axis" },
                 { "LOWER TOTAL", "", "" }, { "UPPER TOTAL", "", "" } },
                 new Object[] { "LowerSection", "Points", "Description" }) {
             private static final long serialVersionUID = 1L;
+            
+            
 
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -81,7 +93,7 @@ public class ScoringCard_1 extends JPanel {
         Button nextButton = new Button("NEXT MISSION", 22, Color.WHITE, Color.decode("#585a5d"),
                 Color.decode("#ed7c31"), new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_2());
+                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
                     }
                 });
         nextButton.setBounds(500, 600, 200, 50);
@@ -92,5 +104,28 @@ public class ScoringCard_1 extends JPanel {
         add(table);
         add(table1);
         add(nextButton);
+        
+        Game.round++;
     }
+    
+	public static void updateTotals() {
+		upperTotal = 0;
+		enolaGay = 0;
+		lowerTotal = 0;
+		grandTotal = 0;
+		
+		for(int k = 0; k < 5; k++) {
+			upperTotal += Game.play.score[k];
+		}
+		
+		if(upperTotal > 65) {
+			enolaGay = 50;
+		}
+		
+		for(int k = 5; k < Card.CARD_SIZE; k++) {
+			lowerTotal += Game.play.score[k];
+		}
+		
+		grandTotal = lowerTotal + upperTotal;
+	}
 }

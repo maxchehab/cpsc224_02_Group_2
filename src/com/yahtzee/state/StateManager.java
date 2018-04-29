@@ -1,10 +1,9 @@
 package com.yahtzee.state;
 
-import java.util.List;
-
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StateManager {
     private static List<StateChangedListener> stateChangedListeners = new ArrayList<StateChangedListener>();
@@ -15,7 +14,7 @@ public class StateManager {
     public static final String EXIT = "EXIT";
     public static final String UPDATE_FLAGDICE = "UPDATE_FLAGDICE";
     public static final String FLAGDICE = "FLAGDICE";
-    public static final String CHOSEN_SCORE = "CHOSEN_SCORE";
+    public static final String SCORECARD = "SCORECARD";
 
     public static void addStateChangedListener(StateChangedListener listener) {
         stateChangedListeners.add(listener);

@@ -1,26 +1,26 @@
 
 package com.yahtzee.pages;
 
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
-import com.yahtzee.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
+
+import com.yahtzee.Game;
+import com.yahtzee.components.Button;
+import com.yahtzee.components.FlagDice;
+import com.yahtzee.state.StateChangedListener;
+import com.yahtzee.state.StateManager;
 
 public class Roll_1Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
     public Roll_1Page() {
-        JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #1");
+        JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #" + Game.round);
         label1.setForeground(Color.decode("#585b5e"));
         label1.setBorder(BorderFactory.createLineBorder(Color.decode("#585b5e"), 3));
         label1.setLocation(10, 10);

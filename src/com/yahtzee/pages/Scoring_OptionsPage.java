@@ -1,19 +1,22 @@
 package com.yahtzee.pages;
 
 import java.awt.Color;
-
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.yahtzee.*;
-import com.yahtzee.components.*;
+import com.yahtzee.Game;
+import com.yahtzee.components.Card;
+import com.yahtzee.components.FinalDie;
+import com.yahtzee.components.FlagDice;
+import com.yahtzee.components.ScoreCalculator;
+import com.yahtzee.components.ScoreChoice;
+import com.yahtzee.components.ScoringDice;
 import com.yahtzee.state.StateChangedListener;
 import com.yahtzee.state.StateManager;
+
 
 public class Scoring_OptionsPage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
@@ -52,7 +55,7 @@ public class Scoring_OptionsPage extends JPanel {
 
         Game.hand = new ScoringDice[Game.HAND_SIZE];
 
-        JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #1");
+        JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #" + Game.round);
         label1.setForeground(Color.decode("#585b5e"));
         label1.setBorder(BorderFactory.createLineBorder(Color.decode("#585b5e"), 3));
         label1.setLocation(10, 10);
@@ -103,14 +106,10 @@ public class Scoring_OptionsPage extends JPanel {
         label6.setSize(400, 60);
         label6.setFont(new Font("_", Font.PLAIN, 17));
 
-        ScoreChoice test = new ScoreChoice("src/assets/images/scorecard/Roosevelt.png", 15, 2, 50, 150);
-
         add(label3);
         add(label4);
         add(label5);
         add(label6);
-
-        //add(test2);
 
         ScoreChoice[] choices = new ScoreChoice[Card.CARD_SIZE];
         ScoreCalculator scores = new ScoreCalculator(Game.hand);
@@ -118,8 +117,6 @@ public class Scoring_OptionsPage extends JPanel {
         int horizontal = 50;
         int vertical = 150;
         boolean column2 = false;
-
-        //Game.play.usable[4] = false;
 
         for (int k = 0; k < Card.CARD_SIZE; k++) {
             if (Game.play.usable[k]) {
@@ -129,88 +126,19 @@ public class Scoring_OptionsPage extends JPanel {
                     column2 = true;
                 }
                 choices[k] = new ScoreChoice(scorePaths[k], scores.scores[k], k, horizontal, vertical);
+                
                 add(choices[k]);
                 vertical += 50;
             }
         }
-
-        /*
-        Button [] scoreChoose = new Button [Card.CARD_SIZE];
-        int selectIndex;
-        
-        for(int k = 0; k < Card.CARD_SIZE; k++) {
-        		if(Game.play.usable[k]) {
-        			if (k > 3 && !column2) {
-        				vertical = 130;
-        				horizontal = 700;
-        				column2 = true;
-        			}
-        			
-        	        scoreChoose[k] = new Button("", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
-        	                new ActionListener() {
-        	                    public void actionPerformed(ActionEvent e) {
-        	                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
-        	                        selectIndex = k;
-        	                    }
-        	                });
-        	                
-        	       
-        	        scoreChoose[k].setBounds(horizontal, vertical, 200, 60);
-        	        add(scoreChoose[k]);
-        	        vertical += 50;
-        	        
-        		}
-        	}
-        */
-        System.out.println(scores.scores[0]);
-
-        for (int k = 0; k < Game.HAND_SIZE; k++) {
-            System.out.println(Game.hand[k].toString());
+        for (int k = 0; k < Card.CARD_SIZE; k++) {
+        		System.out.println(k + ": " + Game.play.score[k]);
         }
-
-        Button rerollButton = new Button("", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
-                    }
-                });
-
-        rerollButton.setBounds(50, 150, 420, 47);
-        add(rerollButton);
-
-        Button scoreButton = new Button("SCORE", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_1());
-                    }
-                });
-
-        scoreButton.setBounds(480, 600, 200, 50);
 
         setBackground(Color.decode("#aeabab"));
         setLayout(null);
         add(label1);
         add(label2);
-        add(scoreButton);
-        add(test);
 
-    }
-
-    public static void clearBoxes(ScoreChoice[] options) {
-        for (int k = 0; k < Card.CARD_SIZE; k++) {
-            if (Game.play.usable[k]) {
-                options[k].picked = false;
-            }
-        }
-    }
-
-    public static int findChoice(ScoreChoice[] options) {
-        for (int k = 0; k < Card.CARD_SIZE; k++) {
-            if (options[k].picked) {
-                return k;
-            }
-        }
-
-        return -1;
     }
 }

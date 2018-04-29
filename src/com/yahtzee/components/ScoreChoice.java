@@ -1,7 +1,5 @@
 package com.yahtzee.components;
 
-import com.yahtzee.pages.*;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,8 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
+import com.yahtzee.Game;
+import com.yahtzee.pages.ScoringCard_1;
+import com.yahtzee.pages.AlternateCard;
+import com.yahtzee.pages.ScoringCard_2;
 import com.yahtzee.state.StateManager;
-import com.yahtzee.components.Image;
 
 public class ScoreChoice extends JComponent {
 
@@ -32,27 +33,24 @@ public class ScoreChoice extends JComponent {
 
         Image Score = new Image(path, 0.2f, 0, 0);
 
-        String score = "";
-        score += points;
-
-        JLabel label2 = new JLabel(score);
-        label2.setForeground(Color.decode("#585b5e"));
-        label2.setLocation(363, 1);
-        label2.setSize(60, 40);
-        label2.setFont(new Font("_", Font.PLAIN, 25));
-
-        Button choiceButton = new Button("HEY hey ", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#bb0056"),
+        Button choiceButton = new Button("                                              " + points, 22, Color.BLACK, Color.GRAY, Color.BLACK,
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        StateManager.changeState(StateManager.CHOSEN_SCORE, categoryIndex);
-                        StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
-
+                    		Game.play.score[index] = points;
+                    		Game.play.usable[index] = false;
+                    		if(Game.round < 12)
+                    			StateManager.changeState(StateManager.CHANGE_PANEL, new AlternateCard());
+                    		else
+                    			StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_2());
                     }
                 });
 
-        choiceButton.setBounds(0, 0, 200, 60);
+        choiceButton.setBounds(0, 0, 423, 42);
+        choiceButton.setOpaque(false);
+        choiceButton.setContentAreaFilled(false);
+        choiceButton.setBorderPainted(false);
+        
         add(choiceButton);
-        add(label2);
         add(Score);
         setLocation(x, y);
 

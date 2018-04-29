@@ -1,23 +1,24 @@
 package com.yahtzee.pages;
 
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+
+import com.yahtzee.Game;
+import com.yahtzee.components.Button;
+import com.yahtzee.state.StateManager;
 
 public class ScoringCard_2 extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
     public ScoringCard_2() {
         JLabel label1 = new JLabel(
-                "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'><strong>Here's you <strong>FINAL</strong> Scorecard after round #1:</strong>");
+                "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'><strong>Here's you <strong>FINAL</strong> Scorecard</strong>");
         label1.setForeground(Color.decode("#414446"));
         label1.setLocation(315, 10);
         label1.setSize(500, 60);
@@ -89,6 +90,7 @@ public class ScoringCard_2 extends JPanel {
         Button NewGameButton = new Button("NEW GAME", 22, Color.WHITE, Color.decode("#585a5d"), Color.decode("#ed7c31"),
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
+                    		Game.resetGame();
                         StateManager.changeState(StateManager.CHANGE_PANEL, new Roll_1Page());
                     }
                 });

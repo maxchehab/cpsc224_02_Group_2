@@ -1,18 +1,17 @@
 
 package com.yahtzee.pages;
 
-import com.yahtzee.state.*;
-import com.yahtzee.components.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.yahtzee.components.Button;
+import com.yahtzee.components.Image;
+import com.yahtzee.state.StateManager;
 
 public class Scoring_1Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
@@ -56,9 +55,7 @@ public class Scoring_1Page extends JPanel {
                     }
                 });
         nextButton.setBounds(830, 500, 200, 50);
-        Integer index = (Integer)StateManager.getState(StateManager.CHOSEN_SCORE);
-        
-        System.out.println("Chosen Index: " + index);
+       
 
         setBackground(Color.decode("#e7e6e6"));
         setLayout(null);
