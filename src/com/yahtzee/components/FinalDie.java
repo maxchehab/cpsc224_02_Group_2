@@ -1,3 +1,8 @@
+/**
+ * a small flag image meant to be displayed on a Scoring_OptionsPage.
+ * 
+ * @author afellger
+ */
 package com.yahtzee.components;
 
 import java.awt.Color;

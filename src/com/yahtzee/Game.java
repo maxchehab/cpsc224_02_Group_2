@@ -58,8 +58,7 @@ public class Game {
         round = 1;
         
         play = new Card();
-        
-        StateManager.changeState(StateManager.SCORECARD, play);
+     
 
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override

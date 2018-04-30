@@ -1,3 +1,9 @@
+/**
+ * Instantiates a page containing the player's remaining score categories. Selecting a score will
+ * take the player to ScoringCard_2 if the game is over (Round 13) or ScoringCard_1 otherwise.
+ * 
+ * @author afellger
+ */
 package com.yahtzee.pages;
 
 import java.awt.Color;

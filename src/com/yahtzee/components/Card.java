@@ -1,3 +1,8 @@
+/**
+ * Stores a user's scores for each "mission" category and whether or not a category has been scored.
+ * 
+ * @author afellger
+ */
 package com.yahtzee.components;
 
 public class Card {
@@ -15,9 +20,15 @@ public class Card {
 		}
 	}
 
+	/**
+	 * provides a string containing the score stored at a given index.
+	 * @param int index a value from 0 to CARD_SIZE
+	 * @return String containing the value held at index.
+	 */
 	public String getScore(int index) {
 		String scoreString = "";
 		scoreString += score[index];
+		
 		return scoreString;
 	}
 }

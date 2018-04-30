@@ -1,12 +1,16 @@
+/**
+ * Creates a button that displays a) the category to be scored and b) the number of points that will be obtained
+ * if that category is chosen.
+ * 
+ * @author afellger
+ */
 package com.yahtzee.components;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 
 import com.yahtzee.Game;
 import com.yahtzee.pages.ScoringCard_1;
@@ -25,6 +29,14 @@ public class ScoreChoice extends JComponent {
     public String option;
     public int categoryIndex;
 
+    /**
+     * creates a ScoreChoice
+     * @param String path: address of the image associated with the scoring option index
+     * @param int points: the number of points that will be obtained by selecting the ScoreChoice
+     * @param int index: the index of the category associated with path and points
+     * @param int x: the desired horizontal location of placement
+     * @param int y: the desired vertical location of placement
+     */
     public ScoreChoice(String path, int points, int index, int x, int y) {
 
         this.x = x;

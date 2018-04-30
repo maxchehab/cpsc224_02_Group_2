@@ -1,4 +1,3 @@
-
 package com.yahtzee.pages;
 
 import java.awt.Color;
