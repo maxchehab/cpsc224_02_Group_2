@@ -86,7 +86,7 @@ public class ScoringDice {
 		case "CHINA":
 			name = Country.CHINA;
 			side = Allegiance.ALLIES;
-			value = 3;
+			value = 5;
 			break;
 		case "JAPAN":
 			name = Country.JAPAN;
@@ -96,7 +96,7 @@ public class ScoringDice {
 		case "GERMANY":
 			name = Country.GERMANY;
 			side = Allegiance.AXIS;
-			value = -5;
+			value = -3;
 			break;
 		case "ITALY":
 			name = Country.ITALY;
@@ -106,7 +106,7 @@ public class ScoringDice {
 		case "FRANCE":
 			name = Country.FRANCE;
 			side = Allegiance.ALLIES;
-			value = 3;
+			value = 5;
 			break;
 		}
 	}

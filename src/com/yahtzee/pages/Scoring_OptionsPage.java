@@ -28,6 +28,13 @@ public class Scoring_OptionsPage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
     public Scoring_OptionsPage() {
+    	
+        JLabel label7 = new JLabel(
+                "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'>Select the mission you would like to score!");
+        label7.setForeground(Color.decode("#414446"));
+        label7.setLocation(315, 60);
+        label7.setSize(500, 60);
+        label7.setFont(new Font("_", Font.PLAIN, 20));
 
         FlagDice[] flags = (FlagDice[]) StateManager.getState(StateManager.FLAGDICE);
 
@@ -102,20 +109,21 @@ public class Scoring_OptionsPage extends JPanel {
 
         JLabel label5 = new JLabel("<html><div style='padding-bottom: 5; width: 200; text-align: left;'>POINTS");
         label5.setForeground(Color.decode("#414446"));
-        label5.setLocation(215, 100);
+        label5.setLocation(400, 100);
         label5.setSize(400, 60);
         label5.setFont(new Font("_", Font.PLAIN, 17));
 
         JLabel label6 = new JLabel("<html><div style='padding-bottom: 5; width: 200; text-align: left;'>POINTS");
         label6.setForeground(Color.decode("#414446"));
-        label6.setLocation(865, 100);
-        label6.setSize(400, 60);
+        label6.setLocation(1050, 100);
+        label6.setSize(550, 60);
         label6.setFont(new Font("_", Font.PLAIN, 17));
 
         add(label3);
         add(label4);
         add(label5);
         add(label6);
+        add(label7);
 
         ScoreChoice[] choices = new ScoreChoice[Card.CARD_SIZE];
         ScoreCalculator scores = new ScoreCalculator(Game.hand);
@@ -128,7 +136,7 @@ public class Scoring_OptionsPage extends JPanel {
             if (Game.play.usable[k]) {
                 if (k > 4 && !column2) {
                     vertical = 150;
-                    horizontal = 720;
+                    horizontal = 700;
                     column2 = true;
                 }
                 choices[k] = new ScoreChoice(scorePaths[k], scores.scores[k], k, horizontal, vertical);
