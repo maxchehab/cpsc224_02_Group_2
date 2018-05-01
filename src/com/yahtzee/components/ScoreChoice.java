@@ -44,15 +44,15 @@ public class ScoreChoice extends JComponent {
 
         Image Score = new Image(path, 0.2f, 0, 0);
 
-        Button choiceButton = new Button("                                              " + points, 22, Color.BLACK, Color.GRAY, Color.BLACK,
-                new ActionListener() {
+        Button choiceButton = new Button("                                              " + points, 22, Color.BLACK,
+                Color.GRAY, Color.BLACK, new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                    		Game.play.score[index] = points;
-                    		Game.play.usable[index] = false;
-                    		if(Game.round < Card.CARD_SIZE)
-                    			StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_1());
-                    		else
-                    			StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_2());
+                        Game.play.score[index] = points;
+                        Game.play.usable[index] = false;
+                        if (Game.round < Card.CARD_SIZE)
+                            StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_1());
+                        else
+                            StateManager.changeState(StateManager.CHANGE_PANEL, new ScoringCard_2());
                     }
                 });
 
@@ -60,7 +60,7 @@ public class ScoreChoice extends JComponent {
         choiceButton.setOpaque(false);
         choiceButton.setContentAreaFilled(false);
         choiceButton.setBorderPainted(false);
-        
+
         add(choiceButton);
         add(Score);
         setLocation(x, y);
