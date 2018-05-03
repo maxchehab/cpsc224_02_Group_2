@@ -1,3 +1,14 @@
+/* 
+ * BackgroundPanel represents the default background panel
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.components;
 
 import java.awt.Color;
@@ -11,6 +22,15 @@ public class BackgroundPanel extends JPanel {
 
     static final long serialVersionUID = 0; // JFrame requires a unique number.
 
+    /*
+     * BackgroundPanel creates and initializes the default background panel
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public BackgroundPanel(int width, int height, JPanel panel) {
         JLabel label = new JLabel("WWII Yahtzee");
         label.setFont(new Font("_", Font.BOLD, 32));

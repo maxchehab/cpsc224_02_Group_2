@@ -1,3 +1,13 @@
+/* 
+ * Scoring_1Page is a the UI for the Game's Scoring 1 Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
 
 package com.yahtzee.pages;
 
@@ -16,6 +26,15 @@ import com.yahtzee.state.StateManager;
 public class Scoring_1Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * Scoring_1Page initializes all UI elements for the Scoring Page 1
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Scoring_1Page() {
         JLabel label1 = new JLabel("<html>Welcome to the war! We’re glad to have your help on this one, commandant.");
         label1.setForeground(Color.decode("#585b5e"));
@@ -55,7 +74,6 @@ public class Scoring_1Page extends JPanel {
                     }
                 });
         nextButton.setBounds(830, 500, 200, 50);
-       
 
         setBackground(Color.decode("#e7e6e6"));
         setLayout(null);

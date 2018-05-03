@@ -1,3 +1,14 @@
+/* 
+ * Roll_1Page is a the UI for the Game's Roll 1 Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.pages;
 
 import java.awt.Color;
@@ -18,6 +29,15 @@ import com.yahtzee.state.StateManager;
 public class Roll_1Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * Roll_1Page initializes all UI elements for the Roll 1 Page
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Roll_1Page() {
         JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #" + Game.round);
         label1.setForeground(Color.decode("#585b5e"));
@@ -40,16 +60,10 @@ public class Roll_1Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
-        FlagDice[] flags = new FlagDice[]{
-            new FlagDice(Game.roll(), 320, 100),
-            new FlagDice(Game.roll(), 455, 100),
-            new FlagDice(Game.roll(), 585, 100),
-            new FlagDice(Game.roll(), 720, 100),
-            new FlagDice(Game.roll(), 320, 300),
-            new FlagDice(Game.roll(), 455, 300),
-            new FlagDice(Game.roll(), 585, 300),
-            new FlagDice(Game.roll(), 720, 300)
-        };
+        FlagDice[] flags = new FlagDice[] { new FlagDice(Game.roll(), 320, 100), new FlagDice(Game.roll(), 455, 100),
+                new FlagDice(Game.roll(), 585, 100), new FlagDice(Game.roll(), 720, 100),
+                new FlagDice(Game.roll(), 320, 300), new FlagDice(Game.roll(), 455, 300),
+                new FlagDice(Game.roll(), 585, 300), new FlagDice(Game.roll(), 720, 300) };
 
         StateManager.changeState(StateManager.FLAGDICE, flags);
 
@@ -76,7 +90,7 @@ public class Roll_1Page extends JPanel {
         add(label2);
         add(label3);
 
-        for(FlagDice flag : flags) {
+        for (FlagDice flag : flags) {
             add(flag);
         }
 

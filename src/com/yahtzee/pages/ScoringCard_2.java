@@ -1,3 +1,14 @@
+/* 
+ * ScoringCard_2 is a the UI for the Game's Scoring card 2 page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.pages;
 
 import java.awt.Color;
@@ -24,6 +35,15 @@ public class ScoringCard_2 extends JPanel {
     public static int lowerTotal;
     public static int grandTotal;
 
+    /*
+     * ScoringCard_2 initializes all UI elements for the Scoring Card 2
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public ScoringCard_2() {
 
         JLabel label1 = new JLabel(
@@ -142,6 +162,9 @@ public class ScoringCard_2 extends JPanel {
     }
 
     public static void updateTotals() {
+        if (Game.play.score == null) {
+            return;
+        }
         upperTotal = 0;
         enolaGay = 0;
         lowerTotal = 0;

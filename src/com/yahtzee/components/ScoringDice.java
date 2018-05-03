@@ -1,3 +1,14 @@
+/* 
+ * ScoringDice represents a dice that has been scored.
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Alli Felger
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.components;
 
 public class ScoringDice {
@@ -16,12 +27,14 @@ public class ScoringDice {
 	private Allegiance side;
 
 	/*
-	* Dice sets a value to the dice's value
-	*
-	* @param int value representing value of the dice
-	* @returns Dice
-	* @throw null
-	*/
+	 * Dice sets a value to the dice's value
+	 *
+	 * @param int value representing value of the dice
+	 * 
+	 * @returns Dice
+	 * 
+	 * @throw null
+	 */
 	public ScoringDice(PathName path) {
 		value = 0;
 		name = null;
@@ -30,42 +43,48 @@ public class ScoringDice {
 	}
 
 	/*
-	* getValue gets the value of the dice
-	*
-	* @param null
-	* @returns int representing the dice's value
-	* @throw null
-	*/
+	 * getValue gets the value of the dice
+	 *
+	 * @param null
+	 * 
+	 * @returns int representing the dice's value
+	 * 
+	 * @throw null
+	 */
 	public int getValue() {
 		return value;
 	}
 
 	/*
-	* getName gets the name of the dice
-	*
-	* @param null
-	* @returns Country representing the dice's name
-	* @throw null
-	*/
+	 * getName gets the name of the dice
+	 *
+	 * @param null
+	 * 
+	 * @returns Country representing the dice's name
+	 * 
+	 * @throw null
+	 */
 	public Country getCountryName() {
 		return name;
 	}
 
 	/*
-	* getSide gets the side of the dice
-	*
-	* @param null
-	* @returns Allegiance representing the dice's side
-	* @throw null
-	*/
+	 * getSide gets the side of the dice
+	 *
+	 * @param null
+	 * 
+	 * @returns Allegiance representing the dice's side
+	 * 
+	 * @throw null
+	 */
 	public Allegiance getSide() {
 		return side;
 	}
 
 	/*
-	* populateProperties sets the side and value fields for a corresponding integer
-	
-	*/
+	 * populateProperties sets the side and value fields for a corresponding integer
+	 * 
+	 */
 	public void populateProperties(String countryName) {
 		switch (countryName) {
 		case "USA":

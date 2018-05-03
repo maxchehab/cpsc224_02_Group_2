@@ -1,8 +1,16 @@
-/**
+/* 
+ * Instantiates a page containing the player's remaining score categories. Selecting a score will
+ * take the player to ScoringCard_2 if the game is over (Round 13) or ScoringCard_1 otherwise.
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
  * Instantiates a page containing the player's remaining score categories. Selecting a score will
  * take the player to ScoringCard_2 if the game is over (Round 13) or ScoringCard_1 otherwise.
  * 
  * @author afellger
+ *
+ * @version v1.0 5/02/18 
  */
 package com.yahtzee.pages;
 
@@ -23,12 +31,22 @@ import com.yahtzee.components.ScoringDice;
 import com.yahtzee.state.StateChangedListener;
 import com.yahtzee.state.StateManager;
 
-
 public class Scoring_OptionsPage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    private FlagDice[] flags = new FlagDice[0];
+
+    /*
+     * Scoring_OptionsPage initializes all UI elements for the Scoring Options Page
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Scoring_OptionsPage() {
-    	
+
         JLabel label7 = new JLabel(
                 "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'>Select the mission you would like to score!");
         label7.setForeground(Color.decode("#414446"));
@@ -36,7 +54,13 @@ public class Scoring_OptionsPage extends JPanel {
         label7.setSize(500, 60);
         label7.setFont(new Font("_", Font.PLAIN, 20));
 
-        FlagDice[] flags = (FlagDice[]) StateManager.getState(StateManager.FLAGDICE);
+        Object flagObject = StateManager.getState(StateManager.FLAGDICE);
+
+        if (flagObject != null && flagObject instanceof FlagDice[]) {
+            flags = (FlagDice[]) flagObject;
+        } else {
+            return;
+        }
 
         String[] scorePaths = { "src/assets/images/scorecard/Roosevelt.png", "src/assets/images/scorecard/Stalin.png",
                 "src/assets/images/scorecard/Churchill.png", "src/assets/images/scorecard/KaiShak.png",
@@ -49,7 +73,7 @@ public class Scoring_OptionsPage extends JPanel {
         int i = 0;
 
         for (FlagDice flag : flags) {
-            if (!flag.keep) {
+            if (flag != null && !flag.keep) {
                 flags[i] = new FlagDice(Game.roll(), flag);
             }
             i++;
@@ -81,16 +105,20 @@ public class Scoring_OptionsPage extends JPanel {
         label2.setLocation(280, 10);
         label2.setSize(650, 60);
         label2.setFont(new Font("_", Font.PLAIN, 20));
-
-        FinalDie[] icons = new FinalDie[] { new FinalDie(flags[0].flagImage.path, 450, 2),
-                new FinalDie(flags[1].flagImage.path, 510, 2), new FinalDie(flags[2].flagImage.path, 570, 2),
-                new FinalDie(flags[3].flagImage.path, 630, 2), new FinalDie(flags[4].flagImage.path, 690, 2),
-                new FinalDie(flags[5].flagImage.path, 750, 2), new FinalDie(flags[6].flagImage.path, 810, 2),
-                new FinalDie(flags[7].flagImage.path, 870, 2) };
+        FinalDie[] icons = new FinalDie[0];
+        if (flags.length == 8) {
+            icons = new FinalDie[] { new FinalDie(flags[0].flagImage.path, 450, 2),
+                    new FinalDie(flags[1].flagImage.path, 510, 2), new FinalDie(flags[2].flagImage.path, 570, 2),
+                    new FinalDie(flags[3].flagImage.path, 630, 2), new FinalDie(flags[4].flagImage.path, 690, 2),
+                    new FinalDie(flags[5].flagImage.path, 750, 2), new FinalDie(flags[6].flagImage.path, 810, 2),
+                    new FinalDie(flags[7].flagImage.path, 870, 2) };
+        }
 
         for (int k = 0; k < Game.HAND_SIZE; k++) {
-            Game.hand[k] = new ScoringDice(flags[k].flagImage);
-            add(icons[k]);
+            if (flags.length > k) {
+                Game.hand[k] = new ScoringDice(flags[k].flagImage);
+                add(icons[k]);
+            }
         }
 
         JLabel label3 = new JLabel(
@@ -140,13 +168,13 @@ public class Scoring_OptionsPage extends JPanel {
                     column2 = true;
                 }
                 choices[k] = new ScoreChoice(scorePaths[k], scores.scores[k], k, horizontal, vertical);
-                
+
                 add(choices[k]);
                 vertical += 50;
             }
         }
         for (int k = 0; k < Card.CARD_SIZE; k++) {
-        		System.out.println(k + ": " + Game.play.score[k]);
+            System.out.println(k + ": " + Game.play.score[k]);
         }
 
         setBackground(Color.decode("#aeabab"));

@@ -1,3 +1,13 @@
+/* 
+ * Roll_2Page is a the UI for the Game's Roll 2 Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
 
 package com.yahtzee.pages;
 
@@ -20,8 +30,17 @@ import com.yahtzee.state.StateManager;
 public class Roll_2Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * Roll_2Page initializes all UI elements for the Roll 2 Page
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Roll_2Page() {
-    	
+
         JLabel label1 = new JLabel("<html><div style='margin-left:10'><strong>ROUND #" + Game.round);
         label1.setForeground(Color.decode("#585b5e"));
         label1.setBorder(BorderFactory.createLineBorder(Color.decode("#585b5e"), 3));
@@ -44,7 +63,7 @@ public class Roll_2Page extends JPanel {
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
         FlagDice[] flags = (FlagDice[]) StateManager.getState(StateManager.FLAGDICE);
-        
+
         int i = 0;
         for (FlagDice flag : flags) {
             if (!flag.keep) {

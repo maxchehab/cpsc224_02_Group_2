@@ -1,3 +1,14 @@
+/* 
+ * Game is a representation the higher-level Yahtzee game.
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee;
 
 import java.util.ArrayList;
@@ -53,12 +64,20 @@ public class Game {
         pathAndNames = Collections.unmodifiableList(p);
     }
 
+    /*
+     * Main resets round, creats a new card, adds an additional state listener,
+     * changes the state to the initial panel.
+     * 
+     * @param String[] represent command line arguments
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public static void main(String[] args) {
-
         round = 1;
-        
+
         play = new Card();
-     
 
         StateManager.addStateChangedListener(new StateChangedListener() {
             @Override
@@ -86,14 +105,33 @@ public class Game {
         frame.setVisible(true);
     }
 
+    /*
+     * roll returns a random pathname from the static list pathAndNames.
+     * 
+     * @param null
+     * 
+     * @returns Pathname
+     * 
+     * @throw null
+     */
     public static PathName roll() {
         int index = randomGenerator.nextInt(pathAndNames.size());
         return pathAndNames.get(index);
     }
-    
+
+    /*
+     * @returns void resetGame selects the round to 1 and assigns the play card to a
+     * new card.
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public static void resetGame() {
-    		round = 1;
-    		play = new Card();
+        round = 1;
+        play = new Card();
     }
 
 }

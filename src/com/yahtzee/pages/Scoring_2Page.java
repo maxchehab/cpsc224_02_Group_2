@@ -1,3 +1,13 @@
+/* 
+ * Scoring_2Page is a the UI for the Game's Scoring 2 Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
 
 package com.yahtzee.pages;
 
@@ -16,6 +26,15 @@ import com.yahtzee.state.StateManager;
 public class Scoring_2Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * Scoring_2Page initializes all UI elements for the Scoring Page 2
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Scoring_2Page() {
         JLabel label1 = new JLabel(
                 "<html>Once you’re up and rolling, we need a way to keep track of where we stand against our enemies. There are many different ways to score points, but remember that each category can only be scored once!");

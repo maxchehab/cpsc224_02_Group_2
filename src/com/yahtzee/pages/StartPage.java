@@ -1,3 +1,13 @@
+/* 
+ * StartPage is a the UI for the Game's Start Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
 
 package com.yahtzee.pages;
 
@@ -15,6 +25,15 @@ import com.yahtzee.state.StateManager;
 public class StartPage extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * StartPage initializes all UI elemnts for the StartPage
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public StartPage() {
         JLabel label1 = new JLabel("<html>Welcome to <strong>World War II Yahtzee!</strong>");
         label1.setForeground(Color.decode("#585b5e"));

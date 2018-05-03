@@ -1,3 +1,14 @@
+/* 
+ * FlagDice represents an image and checkbox of dice
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.components;
 
 import java.awt.Color;
@@ -27,10 +38,28 @@ public class FlagDice extends JComponent {
     public PathName pathName;
     public PathName flagImage;
 
+    /*
+     * Creates a flag dice given a PathName and FlagDice (copy constructor)
+     * 
+     * @param PathName pathName, FlagDice flagDice
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public FlagDice(PathName pathName, FlagDice flagDice) {
         this(pathName, flagDice.x, flagDice.y);
     }
 
+    /*
+     * Creates a FlagDice given a pathname and x and y coordinate
+     * 
+     * @param PathName pathName, int x, int y
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public FlagDice(PathName pathName, int x, int y) {
 
         Flag flag = new Flag(pathName.path, pathName.name, 0, 0);
@@ -67,22 +96,58 @@ public class FlagDice extends JComponent {
         setLocation(x, y);
     }
 
+    /*
+     * returns the current PathName
+     * 
+     * @param null
+     * 
+     * @returns PathName
+     * 
+     * @throw null
+     */
     public PathName getPathName() {
         return this.pathName;
     }
 
+    /*
+     * setLocation sets the bounding box and size for the image
+     * 
+     * @param int x, int y
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     @Override
     public void setLocation(int x, int y) {
         setBounds(x, y, width, height);
         setSize(width, height);
     }
 
+    /*
+     * paintComponent paints the component with the image as the background
+     * 
+     * @param Graphics g
+     * 
+     * @returns int
+     * 
+     * @throw null
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         checkbox.setSelected(keep);
     }
 
+    /*
+     * limit, limits an integer between a min and a max (constrain)
+     * 
+     * @param int value, int min, int max
+     * 
+     * @returns int
+     * 
+     * @throw null
+     */
     public int limit(int value, int min, int max) {
         return Math.max(min, Math.min(value, max));
     }

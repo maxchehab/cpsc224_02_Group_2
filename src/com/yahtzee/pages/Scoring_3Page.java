@@ -1,3 +1,13 @@
+/* 
+ * Scoring_3Page is a the UI for the Game's Scoring 3 Page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
 
 package com.yahtzee.pages;
 
@@ -16,6 +26,15 @@ import com.yahtzee.state.StateManager;
 public class Scoring_3Page extends JPanel {
     static final long serialVersionUID = 0; // JFFrame requires a unique number.
 
+    /*
+     * Scoring_3Page initializes all UI elements for the Scoring Page 3
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public Scoring_3Page() {
         JLabel label1 = new JLabel(
                 "<html>The most important part of your job is to score in the <strong>LOWER SECTION</strong>. It is made up of seven different special missions that will get you a specified number of points for completing them. There’s also <strong>D-DAY:</strong> your chance to get points when all else fails.  It allows you to earn points by summing up all of the <strong>ALLY</strong> dice in your hand, and ignoring any deductions from <strong>AXIS</strong> dice.");
@@ -37,11 +56,11 @@ public class Scoring_3Page extends JPanel {
         label3.setSize(1100, 100);
         label3.setFont(new Font("_", Font.PLAIN, 20));
 
-        JTable table = new JTable(
-                new Object[][] { { "CEASE-FIRE", "30", "4 AXIS and 4 ALLIES" },
-                        { "TREATY OF FRIENDSHIP", "30", "3 Germany and 3 Soviet Union" }, { "BIG THREE", "50", "2 US, 2 UK, 2 Soviet Union" },
-                        { "AROUND THE WORLD", "60", "one of each country" }, { "UNITED NATIONS", "70", "all ALLIES" },
-                        { "TRIPARTITE PACT", "70", "all AXIS  members" }, { "PEAL HARBOR", "100", "all one country" },  },
+        JTable table = new JTable(new Object[][] { { "CEASE-FIRE", "30", "4 AXIS and 4 ALLIES" },
+                { "TREATY OF FRIENDSHIP", "30", "3 Germany and 3 Soviet Union" },
+                { "BIG THREE", "50", "2 US, 2 UK, 2 Soviet Union" },
+                { "AROUND THE WORLD", "60", "one of each country" }, { "UNITED NATIONS", "70", "all ALLIES" },
+                { "TRIPARTITE PACT", "70", "all AXIS  members" }, { "PEAL HARBOR", "100", "all one country" }, },
                 new Object[] { "Name", "Points", "Description" }) {
             private static final long serialVersionUID = 1L;
 

@@ -1,3 +1,14 @@
+/* 
+ * ScoringCard_1 is a the UI for the Game's Scoring card 1 page
+ * 
+ * CPSC 224-02, Spring 2018
+ * Final Project
+ * 
+ * @author Maxwell Chehab 
+ *
+ * @version v1.0 5/02/18 
+ */
+
 package com.yahtzee.pages;
 
 import java.awt.Color;
@@ -24,6 +35,15 @@ public class ScoringCard_1 extends JPanel {
     public static int lowerTotal;
     public static int grandTotal;
 
+    /*
+     * ScoringCard_1 initializes all UI elements for the Scoring Card 1
+     * 
+     * @param null
+     * 
+     * @returns void
+     * 
+     * @throw null
+     */
     public ScoringCard_1() {
         JLabel label1 = new JLabel(
                 "<html><div style='padding-bottom: 5; border-bottom: 2px solid #585b5e; width: 500; text-align: center;'>Here's your Scorecard after <strong>ROUND #</strong>"

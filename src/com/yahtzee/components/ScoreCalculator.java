@@ -9,7 +9,7 @@ public class ScoreCalculator {
 
 	public int[] scores = new int[Card.CARD_SIZE];
 	public ScoringDice[] hand = new ScoringDice[Card.HAND_SIZE];
-	
+
 	public static int upperTotal;
 	public static int enolaGay;
 	public static int lowerTotal;
@@ -17,6 +17,7 @@ public class ScoreCalculator {
 
 	/**
 	 * creates a ScoreCalculator, populates scores.
+	 * 
 	 * @param ScoringDice[] round: a set of Card.HAND_SIZE ScoringDice
 	 */
 	public ScoreCalculator(ScoringDice[] round) {
@@ -29,8 +30,8 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * calls scoring functions on the appropriate indices so that the scores for each category will be stored
-	 * in scores.
+	 * calls scoring functions on the appropriate indices so that the scores for
+	 * each category will be stored in scores.
 	 */
 	public void calculate() {
 
@@ -52,7 +53,9 @@ public class ScoreCalculator {
 
 	/**
 	 * provides a score for an upper scorecard category
-	 * @param ScoringDice.Country leader: country from which the category's score will be based
+	 * 
+	 * @param ScoringDice.Country leader: country from which the category's score
+	 *        will be based
 	 * @return total score for a given leader less AXIS dice values.
 	 */
 	private int leaderSum(ScoringDice.Country leader) {
@@ -66,7 +69,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "Cease Fire" category by determining if there are four allies and four axis members
+	 * scores the "Cease Fire" category by determining if there are four allies and
+	 * four axis members
+	 * 
 	 * @return 30 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int ceaseFire() {
@@ -84,8 +89,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "Treaty of Friendship" category by determining if there are three or more of both
-	 * German dice and Soviet Union dice.
+	 * scores the "Treaty of Friendship" category by determining if there are three
+	 * or more of both German dice and Soviet Union dice.
+	 * 
 	 * @return 30 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int treaty() {
@@ -103,10 +109,11 @@ public class ScoreCalculator {
 		else
 			return 0;
 	}
-	
+
 	/**
-	 * scores the "Big Three" category by determining if there are at least two USA dice, two Soviet Union dice,
-	 * and two UK dice.
+	 * scores the "Big Three" category by determining if there are at least two USA
+	 * dice, two Soviet Union dice, and two UK dice.
+	 * 
 	 * @return 50 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int bigThree() {
@@ -129,7 +136,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "Around the World" category by determining if there is one of each country's die
+	 * scores the "Around the World" category by determining if there is one of each
+	 * country's die
+	 * 
 	 * @return 60 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int aroundWorld() {
@@ -168,7 +177,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "United Nations" category by determining if there are only ALLIES in the hand.
+	 * scores the "United Nations" category by determining if there are only ALLIES
+	 * in the hand.
+	 * 
 	 * @return 70 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int unitedNations() {
@@ -181,7 +192,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "Tripartite Pact" category by determining if there are only AXIS members in the hand.
+	 * scores the "Tripartite Pact" category by determining if there are only AXIS
+	 * members in the hand.
+	 * 
 	 * @return 70 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int pact() {
@@ -193,7 +206,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "Pearl Harbor" category by determining if the hand consists of only one Country's dice.
+	 * scores the "Pearl Harbor" category by determining if the hand consists of
+	 * only one Country's dice.
+	 * 
 	 * @return 100 as score if the requirements are met, and 0 otherwise.
 	 */
 	private int pearlHarbor() {
@@ -210,7 +225,9 @@ public class ScoreCalculator {
 	}
 
 	/**
-	 * scores the "D-Day" category by summing up all ALLY dice and ignoring AXIS dice.
+	 * scores the "D-Day" category by summing up all ALLY dice and ignoring AXIS
+	 * dice.
+	 * 
 	 * @return sum of all ALLY dice values.
 	 */
 	private int dDay() {
